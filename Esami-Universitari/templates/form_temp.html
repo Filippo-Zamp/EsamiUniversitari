@@ -1,0 +1,26 @@
+{% extends "template2.html" %}
+{% block content %}
+    <div class="row">
+        <!-- Logo & Information Panel-->
+        <div class="col-lg-6">
+            <div class="info d-flex align-items-center">
+                <div class="content">
+                    <div class="logo">
+                        <img height="176" width="400" src="/static/Immagini/logo.png" style="filter: contrast(200%); -webkit-filter: contrast(200%)">
+                        {% block logo %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Form Panel    -->
+        <div class="col-lg-6 bg-white">
+            <div class="form d-flex align-items-center">
+                <div class="content">
+                    {% block accesso %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

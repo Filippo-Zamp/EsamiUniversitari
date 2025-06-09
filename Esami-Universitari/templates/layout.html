@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAIS Academy</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <link rel="stylesheet" href="/static/content/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/content/style-reg.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/content/style-nav1.css" />
+</head>
+
+<body>
+<section class="header">
+    <div class="topnav">
+        <ul>
+            <li style="float:left"><a href="/" >DAIS Academy</a></li>
+            <li style="float:left"><a href="https://www.unive.it/pag/16129">About</a></li><!-- about-->
+            <li style="float:left"><a href="https://www.unive.it/data/strutture/520040">Contact</a></li>
+            <li style="float:right"><a href="{{ url_for('auth_bp.signup') }}">Registrazione</a></li>
+            <li style="float:right"><a href="{{ url_for('auth_bp.login') }}">Login</a></li>
+        </ul>
+    </div>
+</section>
+
+<div class="text-box">
+    <h1>Università Ca' Foscari</h1>
+    <br>
+    <h3>Join us at DAIS</h3>
+</div>
+
+<section class="about">
+    <h1>DAIS NEWS</h1>
+    <a name="about"></a>
+    <div class="row">
+        <div class="col">
+            <h3>Art Night</h3><br>
+            <img src="..\static\Immagini\event.jpg">
+            <p>L’arte colorerà ancora una volta la notte veneziana con la dodicesima edizione di ART NIGHT VENEZIA che quest’anno si terrà sabato 17 giugno 2023 nella consueta collocazione nella terza settimana di giugno.</p>
+        </div>
+        <div class="col">
+            <h3>Giorno della Laurea</h3><br>
+            <img src="..\static\Immagini\event2.jpg">
+            <p>Il Giorno della Laurea torna mercoledì 26 e giovedì 27 luglio 2023: Ca’ Foscari proclamerà le dottoresse e dottori delle sessioni di laurea straordinaria bis 2021/2022 ed estiva 2022/2023, con due cerimonie nella tradizionale cornice di Piazza San Marco. </p>
+        </div>
+        <div class="col">
+            <h3>Enrico Bertuzzo</h3><br>
+            <img src="..\static\Immagini\event3.jpg">
+            <p>Sull’Emilia-Romagna, una tra le regioni italiane a maggiore rischio idrogeologico, si è recentemente abbattuta una ‘tempesta perfetta’ di elementi che ha provocato alluvioni e frane dalle conseguenze disastrose. Abbiamo analizzato la situazione con Enrico Bertuzzo, professore di Idrologia all’Università Ca’ Foscari Venezia</p>
+        </div>
+    </div>
+    </div>
+</section>
+
+<section class="contatti">
+    <h1>Support</h1>
+    <a name="cont"></a>
+    <ul>
+        <li>Email: daisunive@bing.com</li>
+        <li>Telefono: +3954786589</li>
+        <li>Facebook</li>
+        <li>Instagram</li>
+        <br><br><br>
+    </ul>
+</section>
+
+<script src="/static/scripts/jquery-1.10.2.js"></script>
+<script src="/static/scripts/bootstrap.js"></script>
+<script src="/static/scripts/respond.js"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

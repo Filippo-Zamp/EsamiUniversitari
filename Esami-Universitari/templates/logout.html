@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="/static/content/style-nav.css" />
+{% extends "template2.html" %}
+
+{% block content %}
+    <script>
+        window.setTimeout(function(){
+            window.location.href = "{{ url_for('auth_bp.index') }}";
+        }, 800);
+    </script>
+    <div class="logout">
+        <h1>Logout Effettuato</h1>
+    </div>
+{% endblock %}

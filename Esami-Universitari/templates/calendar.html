@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="/static/content/style-profile.css">
+<link rel="stylesheet" type="text/css" href="/static/content/table_style.css" />
+
+{% extends "template.html" %}
+
+{% block head %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/16fda319fc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                timeZone: 'UTC',
+                dayMaxEvents: true, // allow "more" link when too many events
+                initialView: 'dayGridMonth',
+                aspectRatio: 2.25,
+                events: [
+                    {% for event in events %}
+                        {
+                            title: '{{event.title}}',
+                            start: '{{event.start}}',
+                            end: '{{event.end}}',
+                            description: '{{event.description}}',
+                        },
+                    {% endfor %}
+                ],
+                eventClick: function (info) {
+                    console.log(info)
+                    alert('Event: ' + info.event.extendedProps.description);
+                }
+            });
+            calendar.render();
+        });
+    </script>
+{% endblock %}
+{% block content %}
+    <section class="section about-section gray-bg" id="about">
+        <div class="container">
+            <h4>{% with messages = get_flashed_messages() %}</h4>
+                {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <section class="title">
+                <h1>{{ title }}</h1>
+            </section>
+            <div id="calendar"></div>
+        </div>
+    </section>
+{% endblock %}

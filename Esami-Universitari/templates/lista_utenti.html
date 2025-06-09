@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="/static/content/style-profile.css" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" type="text/css" href="/static/content/table_style.css" />
+<link rel="stylesheet" type="text/css" href="/static/content/style-nav.css" />
+{% extends "template2.html" %}
+
+{% block content %}
+    <section class="section about-section gray-bg" id="about">
+        <div class="container">
+            <ul>
+                {% if ruolo == 'admin' %}
+                    <li><a href="{{ url_for('admin_bp.amministrazione') }}">Home</a></li>
+                    <li style="float:right"><a href="{{ url_for('auth_bp.logout') }}">Logout</a></li>
+                {% endif %}
+            </ul>
+            <h4>{% with messages = get_flashed_messages() %}</h4>
+                {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            {% if ruolo == 'admin' %}
+                <div>
+                    <section class="title">
+                        <h1> Lista Studenti </h1>
+                    </section>
+                    <section class="modi_tabella">
+                        <div style="overflow-x:auto;">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th><h1>Email:</h1></th>
+                                    <th><h1>Nome:</h1></th>
+                                    <th><h1>Cognome:</h1></th>
+                                    <th><h1>Telefono:</h1></th>
+                                    <th><h1>Potere:</h1></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for row in lista_studenti %}
+                                    <tr>
+                                        <td>{{ row['email'] }}</td>
+                                        <td>{{ row['nome'] }}</td>
+                                        <td>{{ row['cognome'] }}</td>
+                                        <td>{{ row['telefono'] }}</td>
+                                        <td>
+                                            <form action="{{ url_for('admin_bp.lista_utente') }}" method="POST">
+                                                <input type="radio" name="{{ row['id'] }}_radio"
+                                                       {% if row['ruolo']==1 %} checked {% endif %} value="docente"> docente
+
+                                                <br>
+                                                <input type="radio" name="{{ row['id'] }}_radio"
+                                                        {% if row['ruolo']==2 %} checked {% endif %} value="studente"> studente
+                                                <input type="hidden" name="id_passato" value="{{ row['id'] }}">
+                                                &nbsp;&nbsp;
+                                                <input type="submit" name="modificavalori" class="btn btn-primary" value="Modifica permessi">
+                                                <!-- da terminare... -->
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+                <br/>
+                <div>
+                    <section class="title">
+                        <h1> Lista Docenti </h1>
+                    </section>
+                    <section class="modi_tabella">
+                        <div style="overflow-x:auto;">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th><h1>Email:</h1></th>
+                                    <th><h1>Nome:</h1></th>
+                                    <th><h1>Cognome:</h1></th>
+                                    <th><h1>Telefono:</h1></th>
+                                    <th><h1>Potere:</h1></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for row in lista_docenti %}
+                                    <tr>
+                                        <td>{{ row['email'] }}</td>
+                                        <td>{{ row['nome'] }}</td>
+                                        <td>{{ row['cognome'] }}</td>
+                                        <td>{{ row['telefono'] }}</td>
+                                        <td>
+                                            <form action="{{ url_for('admin_bp.lista_utente') }}" method="POST">
+                                                <input type="radio" name="{{ row['id'] }}_radio"
+                                                        {% if row['ruolo']==1 %} checked {% endif %} value="docente"> docente
+                                                <br>
+                                                <input type="radio" name="{{ row['id'] }}_radio"
+                                                        {% if row['ruolo']==2 %} checked {% endif %} value="studente"> studente
+
+                                                <input type="hidden" name="id_passato2" value="{{ row['id'] }}">
+                                                &nbsp;&nbsp;
+                                                <input type="submit" name="modificavalori2" class="btn btn-primary" value="Modifica permessi">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

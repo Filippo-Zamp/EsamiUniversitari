@@ -1,0 +1,36 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(147, 43, 43, 0.9);
+  height: auto;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: whitesmoke;
+}
+
+.active {
+  background-color: #111;
+}
+
+.logout{
+  height: 80px;
+  width: 1100px;
+  text-align: center;
+  background-color: #FFFFFF;
+  color: black;
+}

@@ -1,0 +1,44 @@
+{% extends "form_temp.html" %}
+
+{% block logo %}
+    <h1>REGISTRAZIONE</h1>
+    <p>Effettua la registrazione inserendo i tuoi dati</p>
+{% endblock %}
+
+{% block accesso %}
+
+    <h2>{{ title }}</h2>
+
+    <link rel="stylesheet" href="/static/content/bootstrap.css">
+
+    <form action="{{ url_for('auth_bp.signup') }}" method="POST">
+        <div class="form-group">
+            {{ form.email.label }}:
+            {{ form.email(class_="form-control") }}
+            <br />
+            {{ form.nome.label }}:
+            {{ form.nome(class_="form-control") }}
+            <br />
+            {{ form.cognome.label }}:
+            {{ form.cognome(class_="form-control") }}
+            <br />
+            {{ form.data.label }}:
+            {{ form.data(class_="form-control") }}
+            <br />
+            {{ form.genere.label }}:
+            {{ form.genere(class_="form-control") }}
+            <br />
+            {{ form.password.label }}:
+            {{ form.password(class_="form-control") }}
+            <h3>Informazioni di contatto</h3>
+            <br />
+            {{ form.telefono.label }}:
+            {{ form.telefono(class_="form-control") }}
+            <br />
+            {{ form.altricontatti.label }}:
+            {{ form.altricontatti(class_="form-control") }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <small>Vuoi loggarti?</small><a style="color: #932b2b" href="{{ url_for('auth_bp.login') }}">&nbsp;Login</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+Flask==2.3.2
+flask_sqlalchemy==3.0.5
+psycopg2-binary
+flask_login==0.6.2
+SQLAlchemy==2.0.17
+Werkzeug==2.3.6
+flask_wtf
+wtforms
+fpdf2==2.7.4
+plotly==5.15.0
+pandas==2.0.2
+kaleido==0.2.1

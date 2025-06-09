@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Esami-Universitari</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/content/style.default.css" id="theme-stylesheet">
+</head>
+<body>
+<link rel="stylesheet" href="/static/content/style-drop.css">
+<script>
+    let subMenu = document.getElementById("subMenu");
+
+    function toggleMenu(){
+        subMenu.classList.toggle("open-menu");
+    }
+</script>
+
+{% block head %}{% endblock %}
+<div class="page login-page">
+    <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

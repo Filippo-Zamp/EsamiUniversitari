@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/static/content/style-profile.css">
+<link rel="stylesheet" href="/static/content/style-button.css">
+<link rel="stylesheet" type="text/css" href="/static/content/table_style.css" />
+
+{% extends "template.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="/static/content/style-button.css">
+    <link rel="stylesheet" type="text/css" href="/static/content/table_style.css" />
+
+        <section class="section about-section gray-bg" id="about">
+        <div class="container">
+
+            <h4>{% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            </h4>
+            <section class="title">
+                <h1>{{ title }}</h1>
+            </section>
+
+            <section class="modify">
+                <form action="/update_prova/{{query.id}}" method="POST">
+                    <div class="form-group">
+                        {{ form.nome.label }}:
+                        {{ form.nome(class_="form-control") }}
+                        <br />
+                        {{ form.tipo.label }}:
+                        {{ form.tipo(class_="form-control") }}
+                        <br />
+                        {{ form.peso.label }}:
+                        {{ form.peso(class_="form-control") }}
+                        <br />
+                        {{ form.descrizione.label }}:
+                        {{ form.descrizione(class_="form-control") }}
+                        <br />
+                        {{ form.voto_minimo.label }}:
+                        {{ form.voto_minimo(class_="form-control") }}
+                        <br />
+                        {{ form.dipendenze.label }}:
+                        {{ form.dipendenze(class_="form-control") }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </section>
+        </div>
+    </section>
+{% endblock %}

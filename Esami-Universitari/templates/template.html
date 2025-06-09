@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Esami-Universitari</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/content/style-nav1.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <link rel="stylesheet" href="/static/content/style.css">
+    <link rel="stylesheet" href="/static/content/style.default.css" id="theme-stylesheet">
+
+</head>
+<body>
+
+<link rel="stylesheet" href="/static/content/style-drop.css">
+<link rel="stylesheet" href="/static/content/bootstrap.css">
+<div class="topnav">
+    <ul>
+
+        <li style="float:left"><a href="{{ url_for('views_bp.home_principale') }}">Home</a></li>
+        <li style="float:left"><a href="{{ url_for('esame_bp.lista_esame') }}">Lista Esami</a></li>
+        <li style="float:left"><a href="{{ url_for('appello_bp.lista_appello') }}">Lista Appelli</a></li>
+
+        <li style="float: right"><a href="{{ url_for('auth_bp.logout') }}">Logout</a></li>
+
+        <div class="about-avatar">
+            {% if dati_utente.sesso == 'Maschio' %}
+            <li style="float: right"><a href="{{ url_for('views_bp.profilo') }}"><img src="..\static\Immagini\professor.png" class="user-pic" ></a></li>
+            {% elif dati_utente.sesso == 'Femmina' %}
+            <li style="float: right"><a href="{{ url_for('views_bp.profilo') }}"><img src="..\static\Immagini\teacher.png" class="user-pic" ></a></li>
+            {% else %}
+            <li style="float: right"><a href="{{ url_for('views_bp.profilo') }}"><img src="..\static\Immagini\avataraltro.png" class="user-pic" ></a></li>
+            {% endif %}
+        </div>
+
+        {% if dati_utente.ruolo == 1 %}
+        <li style="float:left"><a href="{{ url_for('esame_bp.creazione_esame') }}">Creazione Esame</a></li>
+        {% elif dati_utente.ruolo == 2 %}
+        <li style="float:left"><a href="{{ url_for('views_bp.lista_prenotazioni') }}">Lista Prenotazioni</a></li>
+        <li style="float:left"><a href="{{ url_for('views_bp.carriera') }}">Carriera</a></li>
+        <li style="float:left"><a href="{{ url_for('views_bp.calendar') }}">Calendario</a></li>
+        <li style="float:left"><a href="{{ url_for('voto_bp.bacheca_esiti') }}">Bacheca Esiti</a></li>
+        <li style="float:left"><a href="{{ url_for('voto_bp.voti_appelli') }}">Voti Appelli</a></li>
+
+        {% endif %}
+    </ul>
+
+</div>
+<script>
+    let subMenu = document.getElementById("subMenu");
+
+    function toggleMenu(){
+        subMenu.classList.toggle("open-menu");
+    }
+</script>
+
+{% block head %}{% endblock %}
+<div class="page login-page">
+    <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

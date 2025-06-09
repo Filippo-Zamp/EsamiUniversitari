@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(../Immagini/laboratorichimica.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    text-align: left;
+}
+
+.text-box h1{
+    font-size: 65px;
+}
+
+.text-box h3{
+    font-size:30px;
+}
+
+.reg-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #FFFF19;
+    border: 1px solid #FFFF19;
+    padding: 12px 34px;
+    /*background: tranparent;*/
+    position: relative;
+    cursor: pointer;
+}
+
+.reg-btn:hover{
+    border: 1px solid #3377FF;
+    background: #3377FF;
+    transition: 0.5s;
+}
+
+.log-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #FFFF19;
+    border: 1px solid #FFFF19;
+    padding: 12px 34px;
+    /*background: tranparent;*/
+    position: relative;
+    cursor: pointer;
+}
+
+.log-btn:hover{
+    border: 1px solid #f44336;
+    background: #f44336;
+    transition: 0.5s;
+}
+
+.about{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    background-color: rgba(147, 43, 43, 0.9);
+}
+
+.about h1{
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.about h3{
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.about p{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.about h3{
+    font-size: 30px;
+}
+
+.about .row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0;
+}
+
+.about .col{
+    flex-basis: 31%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+}
+
+.col img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contatti h1{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #932b2b;
+}
+
+.contatti ul{
+    list-style: none;
+    display: inline-block;
+    width: 50%;
+    margin: auto;
+    text-align: left;
+    padding-left: 100px;
+    padding-top: 20px;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+
+.contatti{
+    background-color: #D7EDF9;
+}
