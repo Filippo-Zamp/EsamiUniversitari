@@ -1,7 +1,7 @@
 # 📚 Gestione di Esami Universitari
 
-Web Application sviluppata per il corso di **Basi di Dati** presso l’Università Ca’ Foscari Venezia, A.A. 2022/2023.  
-Permette la gestione completa degli esami universitari per studenti, docenti e amministratori.
+> Web Application sviluppata per il corso di **Basi di Dati** presso l’Università Ca’ Foscari Venezia, A.A. 2022/2023.  
+> Permette la gestione completa degli esami universitari per studenti, docenti e amministratori.
 
 ## 👥 Team
 
